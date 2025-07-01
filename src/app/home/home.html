@@ -1,0 +1,6 @@
+<app-greeting [message]="homeMessage()" />
+<app-counter />
+<input type="text" (change)="keyUpHandler($event)" />
+<input [value]="name()" (input)="onNameInput($event)" />
+<input [value]="name()" (input)="onNameInput($event)" />
+<p>Your name is - {{name()}}</p>
