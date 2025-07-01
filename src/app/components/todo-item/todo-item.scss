@@ -1,0 +1,14 @@
+
+    tr:nth-child(even){
+        background-color: lightgrey;
+    }
+
+    td{
+        text-align: center;
+
+        > input[type='checkbox'], > label{
+            cursor: pointer;
+            height:1.5rem;
+            width:1.5rem;
+        }
+    }

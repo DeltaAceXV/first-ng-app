@@ -15,7 +15,7 @@ export class HighlightCompletedTodo {
     if(this.isCompleted()){
       this.el.nativeElement.style.textDecoration = 'line-through';
       this.el.nativeElement.style.backgroundColor = '#d3f9d8';
-      this.el.nativeElement.style.textDecoration = '#6c757d';
+      //this.el.nativeElement.style.textDecoration = '#6c757d';
     }else{
       this.el.nativeElement.style.textDecoration = 'none';
       this.el.nativeElement.style.backgroundColor = '#fff';

@@ -1,18 +1,22 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Todo } from '../../model/todo.type';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-todo-item',
-  imports: [],
+  selector: '[app-todo-item]',
+  imports: [UpperCasePipe],
   template:`
-      <tr class='todos__item'>
-        <td> <input id="todo-{{todo().id}}" type='checkbox' [value]='todo().completed' /> </td>
-        <td> <label for="todo-{{todo().id}}">{{todo().title}}</label>  </td>
-        <td> {{todo().userId}} </td>
-      </tr>
+      <td> <input id="todo-{{todo().id}}" type='checkbox' [checked]='todo().completed' (change)="this.todoClicked()" /> </td>
+      <td> <label for="todo-{{todo().id}}">{{todo().title | uppercase}}</label>  </td>
+      <td> {{todo().userId}} </td>
   `,
   styleUrl: './todo-item.scss'
 })
 export class TodoItem {
   todo = input.required<Todo>();
+  todoToggled = output<Todo>();
+
+  todoClicked(){
+    this.todoToggled.emit(this.todo());
+  }
 }
